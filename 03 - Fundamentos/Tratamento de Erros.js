@@ -17,6 +17,7 @@ function tratarErro(erro){
 
 function imprimirNomeMaiusculo(obj) {
 	try {
+		// Passando o nome do atributo errado...
 		console.log(obj.name.toUpperCase(),'!!!')
 	} catch (e) {
 		tratarErro(e)
