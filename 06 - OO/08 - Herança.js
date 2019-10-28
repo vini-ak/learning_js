@@ -80,3 +80,79 @@ const filha2 = Object.create(dad, {
 })
 filha2.nome = 'bela'
 console.log(`${filha2.nome} tem cabelo ${filha2.corCabelo}.`)
+
+
+// PART 04:
+
+
+function MeuObjeto() {}
+console.log(MeuObjeto.prototype)
+
+const obj1 = new MeuObjeto
+const obj2 = new MeuObjeto
+console.log(obj1.__proto__ === obj2.__proto__)
+console.log(MeuObjeto.prototype === obj1.__proto__)
+
+MeuObjeto.prototype.nome = 'Anônimo'
+MeuObjeto.prototype.falar = function() {
+    console.log(`Bom dia! Meu nome é ${this.nome}!`)
+}
+
+obj1.falar()
+
+obj2.nome = 'Rafael'
+obj2.falar()
+
+const obj3 = {}
+obj3.__proto__ = MeuObjeto.prototype
+obj3.nome = 'Luis'
+obj3.falar()
+
+// Resumindo...
+console.log((new MeuObjeto).__proto__ === MeuObjeto.prototype)
+console.log(MeuObjeto.__proto__ === Function.prototype)
+console.log(Function.prototype.__proto__ === Object.prototype)
+console.log(Object.prototype.__proto__ === null)
+
+
+// PART 05
+
+
+// typeOf(String) = Function
+String.prototype.reverse = function () {
+    return this.split('').reverse().join('')
+}
+// typeOf(Array) = Function
+Array.prototype.first = function() {
+    return this[0]
+}
+
+console.log([1,2,4,5,4].first())
+console.log('carai de asa'.reverse())
+
+
+// PART 06
+
+
+function Aula(nome, videoID) {
+    this.nome = nome,
+    this.videoID = videoID
+}
+
+const aula1 = new Aula('Bem Vindo', 123)
+const aula2 = new Aula('Até Breve!', 456)
+
+// simulando o new
+function novo(f, ...params) {
+    const obj = {}
+    obj.__proto__ = f.prototype
+    f.apply(obj, params)
+    return obj
+}
+const aula3 = novo(Aula, 'Oi cu', 342)
+const aula4 = novo(Aula, 'Ai dento', 453)
+
+console.log(aula1)
+console.log(aula2)
+console.log(aula3)
+console.log(aula4)
