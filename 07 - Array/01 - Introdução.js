@@ -1,7 +1,7 @@
 // Arrays em JavaScript começam com indíce 0.
 primeiro_array = ['Vinicius', 'Ricardo', 'Jess', 'Evelyn']
 
-// Adicionando um novo elemento à lista em posição aleatória
+// Adicionando um novo elemento à lista em posição aleatória (ou modificando)
 primeiro_array[4] = 'Bianca'
 
 // Adicionando na última posição:
@@ -22,4 +22,8 @@ console.log(primeiro_array)
 
 // função splice -> array.splice(indice de onde ele começa a trabalhar, excluí os n itens depois desse índice, elementos a serem adicionados)
 primeiro_array.splice(1,1,'Ai dento')
+console.log(primeiro_array)
+
+// Ordenando o array
+primeiro_array.sort()
 console.log(primeiro_array)
