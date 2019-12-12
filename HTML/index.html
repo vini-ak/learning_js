@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Exercícios HTML</title>
+        <style>
+            body {
+                font-family: 'Courier New', Courier, monospace;
+                padding: 50px 50px;
+            }
+
+            #conteudo {
+                padding: 50px 0px;
+                color:blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Exercícios HTML</h1> 
+        </header>
+    </body>
+    <nav>
+        <a href="exercícios/teste.html">00 - Teste</a> |
+        <a href="exercícios/teste2.html">00 - Kyoto</a> |
+    </nav>
+    <section id='conteudo'></section>
+    <footer>
+        Curso de Web Moderno
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach( link => {
+            const conteudo = document.getElementById('conteudo')
+            link.onclick = function(e) {
+                e.preventDefault()  // Impede a navegação. Ao clicar o link, não será redirecionado para outra página.       
+                fetch(link.href) // Fazendo uma requisição Ajax. Retorna uma promise.
+                    .then(resp => resp.text()) // Retorna o conteúdo textual da página HTML acessada. Retorna outra promise.
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</html>
