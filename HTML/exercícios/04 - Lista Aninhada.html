@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Projeto 1</h1>
+        <ul class="tree">
+            <li>
+                <span hide>backend</span>
+                <ul>
+                    <li>
+                        <span hide>app</span>
+                        <ul>
+                            <li>produto.js</li>
+                            <li>usuario.js</li>
+                            <li>venda.js</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span hide>config</span>
+                        <ul>
+                            <li>banco.js</li>
+                            <li>rotas.js</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span hide>frontend</span>
+                <ul>
+                    <li>
+                        <span hide>public</span>
+                        <ul>
+                            <li>app.css</li>
+                            <li>app.js</li>
+                            <li>index.html</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <link rel='stylesheet' href='http://files.cod3r.com.br/curso-web/tree.css'>
+
+        <script>
+            cont = 0
+            document.querySelectorAll('[hide]').forEach(folder => {
+                folder.onclick = function(e) {
+                    const ul = folder.nextElementSibling    // Pega o elemento seguinte da página
+                    const display = ul.style.display    // Salva o atual estado do display em uma constante
+                    ul.style.display = display === 'none' ? 'block' : 'none'    // Se o display for none, 
+                }
+            })
+        </script>
+    </body>
+</html>
